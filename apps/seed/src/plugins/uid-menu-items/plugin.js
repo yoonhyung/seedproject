@@ -17,16 +17,11 @@
 define(function () {
     'use strict';
 
-    function openDashboard() {
-
-    }
-
     function signOut() {
 
     }
 
     return {
-        openDashboard: openDashboard,
         signOut: signOut
     };
 });

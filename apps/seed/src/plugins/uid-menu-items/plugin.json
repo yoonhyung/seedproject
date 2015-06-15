@@ -4,7 +4,6 @@
     "version": "0.1.0",
     "extensions" : {
         "webida.common.workbench:uidMenu" : [
-            { "label": "Dashboard", "handler" : "openDashboard" },
             { "label": "Sign Out", "handler" : "signOut" }
         ]
     }
