@@ -1,5 +1,10 @@
 {
     "plugins": [
+        "plugins/codeeditor",
+        "plugins/webida.editor.text-editor",
+        "plugins/workspace",
+        "plugins/editors",
+        "plugins/preference",
         "plugins/uid-menu-items",
         "plugins/output",
         "plugins/workbench"

@@ -15,19 +15,13 @@
  */
 
 define([
-    'src/app',
     'src/plugin-manager-0.1',
     'lodash'
-], function(app, pm, _) {
+], function(pm, _) {
     'use strict';
 
     var preferences;
     var listeners = {};
-
-    // var prefFileDir = app.getPath() + '/.workspace/';
-    // var prefFilePath = prefFileDir + 'settings.json';
-
-    // var bind = app.getFSCache();
 
     var validValType = ['number', 'string', 'boolean'];
 
@@ -36,53 +30,43 @@ define([
     }
 
     function load(done) {
-        console.info('preferences store load!');
-        // bind.createDirectory(prefFileDir, true, function () {
-        //     bind.readFile(prefFilePath, function (err, content) {
-        //         if (err) {
-        //             done(err);
-        //         } else {
-        //             try {
-        //                 preferences = JSON.parse(content);
-        //                 if (typeof preferences !== 'object') {
-        //                     throw 'Malformed preferences: preferences must be stored in an object';
-        //                 }
-        //                 _.each(preferences, function (value, key) {
-        //                     if (typeof key !== 'string') {
-        //                         throw 'Malformed settings.json: Key type must be string';
-        //                     }
-        //                     if (!isValidValue(value)) {
-        //                         throw 'Malformed settings.json: Value type must be number, string or boolean';
-        //                     }
-        //                 });
+        var data = localStorage.getItem('preferences');
 
-        //                 done();
-        //             } catch (e) {
-        //                 console.log('content = ' + content);
-        //                 done(e);
-        //             }
-        //         }
-        //     });
-        // });
+        if (data) {
+            preferences = JSON.parse(localStorage.getItem('preferences'));
+            console.info('preferences store load!');
+
+            if (typeof preferences !== 'object') {
+                throw 'Malformed preferences: preferences must be stored in an object';
+            }
+
+            _.each(preferences, function (value, key) {
+                if (typeof key !== 'string') {
+                    throw 'Malformed settings.json: Key type must be string';
+                }
+                if (!isValidValue(value)) {
+                    throw 'Malformed settings.json: Value type must be number, string or boolean';
+                }
+            });
+
+            done();
+        } else {
+            preferences = localStorage.setItem(('preferences'), JSON.stringify({}));
+        }
     }
 
     var savedListeners = [];
 
     function save() {
-        console.info('preferences store save!');
-        // bind.createDirectory(prefFileDir, true, function () {
-        //     bind.writeFile(prefFilePath, JSON.stringify(preferences), function (err) {
-        //         if (err) {
-        //             console.error(err);
-        //         } else {
-        //             if (savedListeners && savedListeners.length > 0) {
-        //                 _.each(savedListeners, function (listener) {
-        //                     listener();
-        //                 });
-        //             }
-        //         }
-        //     });
-        // });
+        localStorage.setItem('preferences', JSON.stringify(preferences));
+
+        console.info('preferences saved');
+
+        if (savedListeners && savedListeners.length > 0) {
+            _.each(savedListeners, function (listener) {
+                listener();
+            });
+        }
     }
 
     function callListener(fieldId, value) {

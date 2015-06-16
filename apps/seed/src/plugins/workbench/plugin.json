@@ -43,6 +43,13 @@
 
         "webida.common.workbench:menu": "src/plugins/_extension-points/menu.json",
 
+        "webida.common.workbench:shortcutList" : [
+            { "name" : "getEnclosingDOMElem", "type" : "function",
+              "desc" : "returns a DOM element whose subtree corresponds to the document area in which the shortcuts are handled" },
+            { "name" : "getShortcuts", "type" : "function",
+              "desc" : "returns an array of objects of type { keys: string, title: string, desc: string, viable: boolean } "}
+        ],
+
         "webida.common.workbench:uidMenu": [{
             "name": "label",
             "type": "string",
