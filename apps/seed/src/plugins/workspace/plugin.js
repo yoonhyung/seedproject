@@ -55,7 +55,7 @@ define([
                 var id = self.jstree().get_selected();
                 var text = self.jstree().get_text(id[0]);
 
-                var path = _.uniqueId('script_') + '.js';
+                var path = _.uniqueId('script_') + '.svc';
                 topic.publish('#REQUEST.openFile', path);
             });
 

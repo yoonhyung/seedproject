@@ -1,0 +1,32 @@
+{
+    "form": {
+        "scriptServiceCategory": "Mobile",
+        "scriptServiceName": "Test Workspace Script Service",
+        "scriptServiceLanguage": "SCRIPT",
+        "scriptServiceDesc": "Junit Test Script Service",
+        "maxTimeunit": 0,
+        "maxTime": 0,
+        "messageCode": [
+            "MSG0000245"
+        ],
+        "regDate": 1434513571089,
+        "lastUpdateDate": 1434513571089,
+        "scriptTimeWindow": false,
+        "defaultValues": [
+            [
+                "testkey1",
+                "value1"
+            ],
+            [
+                "testkey2",
+                "value2"
+            ]
+        ]
+    },
+    "script": {
+        "src": "public class JunitTest { }"
+    },
+    "history": {
+
+    }
+}

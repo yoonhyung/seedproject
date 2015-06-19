@@ -1,6 +1,6 @@
 {
     "plugins": [
-        "plugins/codeeditor",
+        "plugins/serviceeditor",
         "plugins/webida.editor.text-editor",
         "plugins/workspace",
         "plugins/editors",
