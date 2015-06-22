@@ -3,9 +3,6 @@
     "description": "a plug-in to navigate workspace",
     "version": "0.1.0",
     "requirement": "webida.common.workbench",
-    "extensionPoints": {
-        "webida.common.workspace:menu": "plugins/_extension-points/menu.json"
-    },
     "extensions": {
         "webida.common.workbench:views": {
             "location": "left",
